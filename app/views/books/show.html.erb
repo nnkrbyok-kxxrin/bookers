@@ -1,0 +1,11 @@
+<div class="post-body">
+  <%= attachment_image_tag book.user, :profile_image_id %>
+  <p>Title：<%= @book.title %></p>
+  <p>Opinion：<%= @book.body %></p>
+  <p>Name：<%= @book.user.name %></p>
+  <% if @book.user == current_user %>
+    <%= link_to "Destroy", book_path(@book), method: :delete %>
+  <% end %>
+</div>
+
+<!--ユーザー登録画像、タイトル、本文、ユーザー名-->
