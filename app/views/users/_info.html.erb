@@ -1,0 +1,26 @@
+<div class="profile-container">
+  <h3 class="profile-name"><%= user.name %></h3>
+  <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+  <!--2%= attachment_image_tag book.user, :profile_image_id %>-->
+  <!--3%= image_tag('sample-author1.jpg') %>-->
+  <% if user.id == current_user.id %>
+    <p><%= link_to "プロフィール編集", edit_user_path(user) %></p>
+  <% end %>
+</div>
+
+<h1>New book</h1>
+
+<% if book.errors.any? %>
+  <%= book.errors.count %>error!
+  <% book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+<%= form_with model: book, local:true do |f| %>
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+  <h4>Opinion</h4>
+  <%= f.text_area :body %>
+  <%= f.submit 'Create Book' %>
+<% end %>

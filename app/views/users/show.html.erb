@@ -1,0 +1,13 @@
+
+<%= render 'users/info', user: @user, book: @book %>
+
+<div>
+  <% @books.each do |book| %>
+    <%= link_to book_path(book.id) do %>
+      <%= attachment_image_tag book.user, :profile_image_id %>
+    <% end %>
+    <p>Title：<%= book.title %></p>
+    <p>Opinion：<%= book.body %></p>
+    <p>Name：<%= book.user.name %></p>
+  <% end %>
+</div>
