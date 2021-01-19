@@ -1,3 +1,12 @@
+<h2>Editing Book</h2>
+
+<% if book.errors.any? %>
+  <%= book.errors.count %>error!
+  <% book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
 <div class="post-body">
   <%= attachment_image_tag book.user, :profile_image_id %>
   <p>Title：<%= @book.title %></p>

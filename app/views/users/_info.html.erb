@@ -1,3 +1,13 @@
+</br>
+<% if book.errors.any? %>
+  <%= book.errors.count %>error!
+  <% book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+<h1>User info</h1>
+
 <div class="profile-container">
   <h3 class="profile-name"><%= user.name %></h3>
   <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
@@ -9,13 +19,6 @@
 </div>
 
 <h1>New book</h1>
-
-<% if book.errors.any? %>
-  <%= book.errors.count %>error!
-  <% book.errors.full_messages.each do |message| %>
-    <%= message %>
-  <% end %>
-<% end %>
 
 <%= form_with model: book, local:true do |f| %>
   <h4>Title</h4>
