@@ -6,17 +6,30 @@
   <% end %>
 <% end %>
 
-<h1>User info</h1>
-
-<div class="profile-container">
-  <h3 class="profile-name"><%= user.name %></h3>
-  <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-  <!--2%= attachment_image_tag book.user, :profile_image_id %>-->
-  <!--3%= image_tag('sample-author1.jpg') %>-->
-  <% if user.id == current_user.id %>
-    <p><%= link_to "プロフィール編集", edit_user_path(user) %></p>
-  <% end %>
-</div>
+  <p id="notice">
+  </p>
+    <div class="container px-5 px-sm-0">
+      <div class="row">
+      <div class="col-md-3">
+      <h2>User info</h2>
+      <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+    <table class="table">
+      <tbody>
+        <tr>
+      	  <th>name</th>
+      	  <th><%= user.name %></th>
+        </tr>
+        <tr>
+      	  <th>introduction</th>
+      	  <th></th>
+        </tr>
+      </tbody>
+    </table>
+    <div class="row">
+      <% if user.id == current_user.id %>
+      <%= link_to "", edit_user_path(user), class: "btn btn-outline-secondary btn-block fas fa-user-cog" %>
+      <% end %>
+    </div>
 
 <h1>New book</h1>
 
@@ -27,3 +40,6 @@
   <%= f.text_area :body %>
   <%= f.submit 'Create Book' %>
 <% end %>
+      </div>
+      </div>
+    </div>

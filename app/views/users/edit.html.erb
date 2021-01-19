@@ -1,8 +1,8 @@
 <h2>User info</h2>
 
-<% if book.errors.any? %>
-  <%= book.errors.count %>error!
-  <% book.errors.full_messages.each do |message| %>
+<% if @user.errors.any? %>
+  <%= @user.errors.count %>error!
+  <% @user.errors.full_messages.each do |message| %>
     <%= message %>
   <% end %>
 <% end %>
