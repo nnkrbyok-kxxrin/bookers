@@ -1,6 +1,10 @@
-<h2>User info</h2>
-
-<% if @user.errors.any? %>
+<main>
+  <p id="notice"></p>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+          <h2>User info</h2>
+          <% if @user.errors.any? %>
   <%= @user.errors.count %>error!
   <% @user.errors.full_messages.each do |message| %>
     <%= message %>
@@ -19,5 +23,30 @@
   <label for="inputIntroduction">Introduction</label>
   </br><%= f.text_area :introduction, autofocus: true, id:"inputIntroduction", placeholder:"Introduction"%>
   </br>
-  <%= f.submit "Update User" %>
+  <%= f.submit "Update User", user_path(@user.id) %>
 <% end %>
+    >  </div>
+</div>
+
+      </div></main>
+
+
+
+      <form enctype="multipart/form-data" action="/users/14736" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="7by+dsPibfjG73OHgvlV6EAHFLNq4+D/X4pHavWTO30AidhE9OhQZaFbWiTjYXsctfQ6iWxVWfdt9nXSipUrYw==">
+
+      <div class="form-group">
+        <label for="user_name">Name</label>
+        <input class="form-control name" type="text" value="erika" name="user[name]" id="user_name">
+      </div>
+     <div class="form-group">
+        <label for="user_image">Image</label>
+        <input value="{}" data-reference="6f6ae9d6bc652318871644bc27e40161" type="hidden" name="user[profile_image]"><input class="form-control-file user_image" data-reference="6f6ae9d6bc652318871644bc27e40161" include_hidden="false" type="file" name="user[profile_image]" id="user_profile_image">
+      </div>
+      <div class="form-group">
+        <label for="user_introduction">Introduction</label>
+        <textarea class="form-control introduction" name="user[introduction]" id="user_introduction">テスト投稿</textarea>
+      </div>
+      <div class="form-group">
+        <input type="submit" name="commit" value="Update User" class="btn btn-secondary" data-disable-with="Update User">
+      </div>
+</form
