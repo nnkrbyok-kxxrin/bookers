@@ -1,0 +1,42 @@
+<p id="notice">
+</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-sm-0 mx-auto">
+        <h1>Editing Book</h1>
+        <%= form_with model: @book, local:true do |f| %>
+          <div class="form-group">
+            <label for="book_title">Title</label>
+            <%= f.text_field :title, class: 'form-control' %>
+          </div> 
+
+          <div class="form-group">
+            <label for="book_body">Opinion</label>
+            <%= f.text_area :body, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.submit "Update Book", class: "btn btn-success" %>
+          </div>
+        <% end %>
+
+		    <%= link_to "show", book_path %> |
+		    <%= link_to "back", books_path %>
+      </div>
+    </div>
+  </div>
+
+<!--<form action="/books/12406" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓">-->
+<!--  <input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="myFR+RDG4Y2lDdjAwpvC9eot5oX1Rrgt+I36ok+NFXGEDL0LDHFZdDUeUpNpnJiVWlQrB9XJJ1UpGe1JrpxdjQ==">-->
+<!--  <div class="form-group">-->
+<!--    <label for="book_title">Title</label>-->
+<!--    <input class="form-control book_title" type="text" value="nnn" name="book[title]" id="book_title">-->
+<!--  </div>-->
+<!--  <div class="form-group">-->
+<!--    <label for="book_opinion">Opinion</label>-->
+<!--    <textarea class="form-control book_body" name="book[body]" id="book_body">nnnnn</textarea>-->
+<!--  </div>-->
+<!--  <div class="form-group">-->
+<!--    <input type="submit" name="commit" value="Update Book" class="btn btn-success" data-disable-with="Update Book">-->
+<!--  </div>-->
+<!--</form>-->
