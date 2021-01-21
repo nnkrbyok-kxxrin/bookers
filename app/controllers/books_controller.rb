@@ -9,11 +9,13 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
 
   if @book.save
-    redirect_to books_path
+    flash[:notice] = "successfully！"
+    redirect_to book_path(@book.id)
     # redirect_to controller: :products, action: :index
-
   else
-    render :new
+    @books = Book.all
+    @user = current_user
+    render :index
   end
   end
 
@@ -25,6 +27,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @book_new = Book.new
   end
 
   def edit
@@ -33,15 +36,14 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
+    
+  if
     @book.update(book_params)
+    flash[:notice] = "successfully！"
     redirect_to book_path(@book.id)
 
-  if
-    @book.save
-    flash[:notice] = "Signed out successfully！"
-    redirect_to books_path
   else
-    render books_path
+    render :edit
   end
   end
 
@@ -49,7 +51,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book.destroy
     redirect_to book_path
-    e
+  end
 
   private
 
